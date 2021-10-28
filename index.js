@@ -11,9 +11,11 @@ app.use(cors())
 app.use(express.json());
 
 
+
+
 // Initial Server 
 app.get('/', (req, res) => {
-    res.send("Server Is running")
+    res.send("Joy travel Server Is running")
 });
 
 app.listen(port, () => {
