@@ -48,12 +48,16 @@ async function run() {
 
         app.get("/myorder/:email", async (req, res) => {
             const email = req.params.email;
-            console.log(email);
             const query = { email: email };
             const courser = orderCollection.find(query);
-            const orders =await courser.toArray();
+            const orders = await courser.toArray();
             res.send(orders);
-        })
+        });
+        app.get("/manageorder", async (req, res) => {
+            const courser = orderCollection.find({});
+            const orders = await courser.toArray();
+            res.send(orders);
+        });
         app.post("/order", async (req, res) => {
             const order = req.body;
             const result = await orderCollection.insertOne(order)
